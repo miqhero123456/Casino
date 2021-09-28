@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+</style>
+</head>
+<body>
+<div id="some_div"></div>
+<br>
+
+<script>
+function get(){
+var timeLeft = 4;
+var elem = document.getElementById('some_div');
+var timerIdd = setInterval(countdown, 500);
+
+function countdown() {
+	 if (timeLeft == 4) {
+		 document.getElementById("Lol1").disabled=true;
+	 }
+    if (timeLeft == -1) {
+        clearTimeout(timerIdd);
+        doSomething();
+		document.getElementById("Lol1").disabled=false;
+    } else {
+        elem.innerHTML = timeLeft + ' seconds remaining';
+        timeLeft--;
+    }
+}
+
+function doSomething() {
+      document.getElementById("Lol").disabled=true;
+}
+	  document.getElementById("Lol").disabled=false;
+
+}
+
+
+var timeLeft = 5;
+var elem = document.getElementById('some_div');
+var timerId = setInterval(countdown, 500);
+
+function countdown() {
+    if (timeLeft == -1) {
+        clearTimeout(timerId);
+        doSomething();
+    } else {
+        elem.innerHTML = timeLeft + ' Seconds remaining';
+        timeLeft--;
+    }
+}
+
+function doSomething() {
+      document.getElementById("Lol").disabled=true;
+
+}
+function getOption() {
+  let b = Math.floor(Math.random() * 3);
+  let array = ["Red","Black","Green"];
+  let obj = document.getElementById("mySelect");
+  let Color = document.getElementById("demo").innerHTML = 
+  obj.options[obj.selectedIndex].text;
+  document.getElementById("Lol").disabled=true;
+  clearInterval(timerId);
+  document.getElementById("Lol1").disabled=false;
+  document.getElementById('some_div').innerHTML = ""
+
+
+
+  if(array[b]==Color){
+  document.getElementById("demo").innerHTML = "You win"
+  clearTimeout(timerId)
+
+  }
+  else{
+  document.getElementById("demo").innerHTML = "You lose"
+  }
+  }
+</script>
+<form  id="frm1" >
+<select id="mySelect">
+  <option>Red</option>
+  <option>Black</option>
+  <option>Green</option>
+</select>
+</form> 
+<br><br> <button id="Lol" onclick="getOption()">Try it</button> <button id="Lol1" onclick="get()">Retty</button>
+
+<p id="demo"></p>
+
+</body>
+</html>
